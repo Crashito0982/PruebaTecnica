@@ -44,7 +44,6 @@ public class CategoriesController : ControllerBase
         if (string.IsNullOrWhiteSpace(req.Nombre))
             throw new BadRequestApiException("nombre es requerido.");
 
-        // Chequeo “amigable” (igual el índice único te cubre)
         var exists = await _db.Categories.AnyAsync(c =>
             c.UsuarioId == _currentUser.UserId && c.Nombre == req.Nombre, ct);
 
