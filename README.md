@@ -126,3 +126,9 @@ Desde SSMS
 - `Gastos.Infrastructure/` — DbContext, EF Core, persistencia, seed
 - `docker-compose.yml` — levanta SQL Server + API
 - `Gastos.Api/Dockerfile` — build/run de la API en contenedor
+
+## Decisiones técnicas e inconvenientes encontrados
+
+- **Ejecución con Docker:** se decidió ejecutar la API y SQL Server con **Docker Compose** para que quien evalúe la solución pueda levantar todo con un solo comando, sin instalar .NET ni configurar una base local.
+- **Bloqueos de seguridad en Windows:** durante la configuración inicial del ambiente, el sistema de seguridad/antivirus de Windows llegó a bloquear o eliminar binarios generados por el build (por ejemplo, `.dll`/`.exe`), impidiendo ejecutar la API localmente. Para evitar fricción y asegurar reproducibilidad, se priorizó la ejecución en contenedores.
+- **Versión de .NET:** inicialmente se trabajó con **.NET 10 (preview)**, pero se migró a **.NET 8 (LTS)** debido a incompatibilidades/conflictos de dependencias con algunas librerías (principalmente relacionadas con OpenAPI/Swagger). La versión final es **.NET 8** por estabilidad y compatibilidad.
