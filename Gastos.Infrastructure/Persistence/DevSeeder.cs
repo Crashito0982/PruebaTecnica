@@ -9,7 +9,7 @@ public static class DevSeeder
         var u1 = Guid.Parse("11111111-1111-1111-1111-111111111111");
         var u2 = Guid.Parse("22222222-2222-2222-2222-222222222222");
 
-        // Categorías demo (solo si no hay)
+        // Categorías demo
         if (!db.Categories.Any())
         {
             var comida1 = new Category { Id = Guid.NewGuid(), UsuarioId = u1, Nombre = "Comida", Descripcion = "Gastos de comida", FechaCreacion = DateTime.UtcNow};
@@ -23,7 +23,7 @@ public static class DevSeeder
             db.SaveChanges();
         }
 
-        // Gastos demo (solo si no hay)
+        // Gastos demo
         if (!db.Expenses.Any())
         {
             var catsU1 = db.Categories.Where(c => c.UsuarioId == u1).Select(c => c.Id).ToList();
