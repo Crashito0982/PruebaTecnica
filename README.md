@@ -129,6 +129,6 @@ Desde SSMS
 
 ## Decisiones técnicas e inconvenientes encontrados
 
-- **Ejecución con Docker:** se decidió ejecutar la API y SQL Server con **Docker Compose** para que quien evalúe la solución pueda levantar todo con un solo comando, sin instalar .NET ni configurar una base local.
-- **Bloqueos de seguridad en Windows:** durante la configuración inicial del ambiente, el sistema de seguridad/antivirus de Windows llegó a bloquear o eliminar binarios generados por el build (por ejemplo, `.dll`/`.exe`), impidiendo ejecutar la API localmente. Para evitar fricción y asegurar reproducibilidad, se priorizó la ejecución en contenedores.
-- **Versión de .NET:** inicialmente se trabajó con **.NET 10 (preview)**, pero se migró a **.NET 8 (LTS)** debido a incompatibilidades/conflictos de dependencias con algunas librerías (principalmente relacionadas con OpenAPI/Swagger). La versión final es **.NET 8** por estabilidad y compatibilidad.
+- **Ejecución con Docker:** Se decidió ejecutar la API y SQL Server con **Docker Compose** para que la persona que tenga que verificar la solución, pueda levantar todo de manera sencilla, sin instalar .NET ni configurar una base local.
+- **Bloqueos de seguridad en Windows:** Durante la configuración inicial del ambiente de desarrollo, y las pruebas, el antivirus de Windows llegó a bloquear varias veces o eliminar archivos generados por el build (por ejemplo, `.dll`/`.exe`), impidiendo ejecutar la API localmente. Esta fue la parte más frustrante. Así que se priorizó la ejecución en Docker para saltarnos esos problemas de seguridad.
+- **Versión de .NET:** inicialmente comencé con **.NET 10 (preview)**, la versión más actual, pero luego decidi cambiar a **.NET 8 (LTS)** debido a incompatibilidades/conflictos de dependencias con algunas librerías, principalmente las relacionadas con OpenAPI/Swagger. La versión final es **.NET 8** por estabilidad y compatibilidad.
