@@ -47,11 +47,9 @@ En Swagger:
 - `11111111-1111-1111-1111-111111111111` (Usuario Demo 1)
 - `22222222-2222-2222-2222-222222222222` (Usuario Demo 2)
 
-Sin `X-User-Id`, la API responde **401**.
-
 ---
 
-## Seed / Base de datos
+## Seed / Base de datos con datos ficticios
 
 En **Development**, al iniciar:
 - Se aplican **migraciones**
@@ -79,7 +77,7 @@ En **Development**, al iniciar:
 - `PUT /expenses/{id}` — actualiza gasto
 - `DELETE /expenses/{id}` — elimina gasto
 
-#### Query params soportados en `GET /expenses`
+#### Parámetros soportados en `GET /expenses`
 - `page` (default 1)
 - `pageSize` (default 10)
 - `categoryId` (opcional)
@@ -92,7 +90,7 @@ Búsqueda (`search`):
 
 ---
 
-## Códigos HTTP esperados (resumen)
+## Códigos HTTP esperados
 
 - **200** OK (lecturas/actualizaciones)
 - **201** Created (creaciones)
@@ -105,31 +103,20 @@ Búsqueda (`search`):
 
 ---
 
-## Conexión a la base (opcional, para inspección)
+## Conexión a la base (opcional)
 
-Desde SSMS / Azure Data Studio:
+Desde SSMS
 - Server: `localhost,1433`
 - Authentication: SQL Login
 - User: `sa`
 - Password: `Your_password123`
 - Database: `GastosDb`
 
-> La password está en `docker-compose.yml` y es solo para la prueba.
+> El password está en `docker-compose.yml` y es solo para la prueba.
 
 ---
 
-## Reset rápido (opcional)
-
-Si querés reiniciar todo (incluye datos del SQL Server):
-
-```bash
-docker compose down -v
-docker compose up --build
-```
-
----
-
-## Estructura del repo (alto nivel)
+## Estructura del repo
 
 - `Gastos.Api/` — API (Controllers, Swagger, Middleware)
 - `Gastos.Application/` — DTOs / lógica de aplicación
