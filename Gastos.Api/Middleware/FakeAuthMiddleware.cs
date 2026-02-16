@@ -23,7 +23,6 @@ public sealed class FakeAuthMiddleware : IMiddleware
 
         var db = context.RequestServices.GetRequiredService<GastosDbContext>();
 
-        // Nota: si luego implementamos soft-delete/bloqueo, lo validamos aquí.
         var user = await db.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == userId);
 
         if (user is null)
