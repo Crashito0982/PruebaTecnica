@@ -27,7 +27,7 @@ builder.Services.AddSwaggerGen(options =>
         In = ParameterLocation.Header,
         Name = "X-User-Id",
         Description = """
-Se puede usar el header X-User-Id (fake auth). Pegá uno de estos GUID:
+Se puede usar el header X-User-Id (fake auth). Pegar uno de estos GUID:
 
 - 11111111-1111-1111-1111-111111111111 (Usuario Demo 1)
 - 22222222-2222-2222-2222-222222222222 (Usuario Demo 2)
@@ -77,7 +77,7 @@ app.UseMiddleware<FakeAuthMiddleware>();
 // Endpoint simple para comprobar que responde
 app.MapGet("/ping", () => Results.Ok("API Gastos OK"));
 
-// Seed + auto-migrate (práctico para dev)
+// Datos ficticios y auto-migrate
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<GastosDbContext>();
