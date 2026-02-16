@@ -31,7 +31,7 @@ Servicios y puertos:
 - Swagger UI:
 - Ir a la dirección:
 ```bash
-  `http://localhost:5124/swagger`
+  http://localhost:5124/swagger
 ```
 - OpenAPI JSON:  
   `http://localhost:5124/swagger/v1/swagger.json`
